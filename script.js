@@ -35,7 +35,6 @@ document.querySelectorAll("a[href^='#']").forEach(link => {
         behavior: "smooth"
       });
     }
-    // Close mobile nav after clicking an anchor
     const nav = document.querySelector('nav');
     const menuToggle = document.querySelector('.menu-toggle');
     if (nav && nav.classList.contains('open')) {
@@ -45,7 +44,6 @@ document.querySelectorAll("a[href^='#']").forEach(link => {
   });
 });
 
-// Mobile menu toggle behavior
 const menuToggle = document.querySelector('.menu-toggle');
 const navEl = document.querySelector('nav');
 if (menuToggle && navEl) {
