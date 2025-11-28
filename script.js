@@ -35,8 +35,25 @@ document.querySelectorAll("a[href^='#']").forEach(link => {
         behavior: "smooth"
       });
     }
+    // Close mobile nav after clicking an anchor
+    const nav = document.querySelector('nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (nav && nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 });
+
+// Mobile menu toggle behavior
+const menuToggle = document.querySelector('.menu-toggle');
+const navEl = document.querySelector('nav');
+if (menuToggle && navEl) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navEl.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+}
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
